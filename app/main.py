@@ -21,6 +21,6 @@ async def webhook(req: Request):
     message = f"🚨 {ticker} ALERT\nEvent: {event}\nPrice: {price}"
 
     if DISCORD_WEBHOOK_URL:
-        requests.post(DISCORD_WEBHOOK_URL, json={"content": message})
+        requests.post(DISCORD_WEBHOOK_URL, json={"content": message}, timeout=10)
 
     return {"ok": True}
